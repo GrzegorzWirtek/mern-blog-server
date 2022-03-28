@@ -27,7 +27,6 @@ export const addComment = async (req, res) => {
 
 export const addArticle = async (req, res) => {
 	const article = req.body;
-	console.log(req.body);
 	try {
 		const newArticle = DBArticle(article);
 		await newArticle.save();
