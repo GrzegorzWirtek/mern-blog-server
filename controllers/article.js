@@ -36,3 +36,14 @@ export const addArticle = async (req, res) => {
 		console.log('Add comment server error: ', error);
 	}
 };
+
+export const deleteArticle = async (req, res) => {
+	const _id = req.body._id;
+	try {
+		await DBArticle.findByIdAndDelete(_id);
+		const articles = await DBArticle.find();
+		res.status(201).send(articles);
+	} catch (error) {
+		console.log('Add comment server error: ', error);
+	}
+};
